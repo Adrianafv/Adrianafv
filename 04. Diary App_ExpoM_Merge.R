@@ -219,22 +219,21 @@ CH_ExpoM_Diary_Clean <-  CH_ExpoM_Diary %>% rowwise() %>%
 
 
 #Separate in RMS Values
-CH_Data_RMS<- CH_ExpoM_Diary_Clean[, c(1:6,22:23,44, 30:41,47,49:83,119:122)] #RMS values
+CH_Data_RMS<- CH_ExpoM_Diary_Clean[, c(1:7,22:23,44, 30:41,47,49:83,119:122)] #RMS values
 #Add Total RMS column that was lost during crosstalk
-CH_Data_RMS$Total_RMS<- sqrt(rowSums(CH_Data_RMS[,c(23:57)]^2))
+CH_Data_RMS$Total_RMS<- sqrt(rowSums(CH_Data_RMS[,c(24:58)]^2))
 
 
 #Separate in Peak Values
-CH_Data_PEAK<- CH_ExpoM_Diary_Clean[, c(1:6,22:23,44, 30:41,47,84:122)] #Peak values
+CH_Data_PEAK<- CH_ExpoM_Diary_Clean[, c(1:7,22:23,44, 30:41,47,84:122)] #Peak values
 
 
 
 
 #D. Export Data####
-setwd("U:/GOLIAT/Task 1.2.1 Measurement Protocol GOLIAT/Measurements 2023/Data analysis/ExpoM_Diary_Merged/CH")
+setwd("U:/GOLIAT/Task 1.2.1 Measurement Protocol GOLIAT/Measurements 2023/Data analysis/Modified data/03. ExpoM_Diary_Merged/CH")
 write.csv(CH_Data_RMS, "CH_Data_RMS.csv")
 write.csv(CH_Data_PEAK, "CH_Data_PEAK.csv")
-write.csv(CH_Data_RMSTotal, "CH_Data_RMSTotal.csv")
 
 
 #*------------------------------------------------------------------------------------tail(UK_Day1)

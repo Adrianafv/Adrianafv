@@ -36,12 +36,12 @@ library(hrbrthemes)
 #1. Import DataSets####
 
 #CH
-setwd("U:/GOLIAT/Task 1.2.1 Measurement Protocol GOLIAT/Measurements 2023/Data analysis/ExpoM_Diary_Merged/CH")
+setwd("U:/GOLIAT/Task 1.2.1 Measurement Protocol GOLIAT/Measurements 2023/Data analysis/Modified data/03. ExpoM_Diary_Merged/CH")
 RMS_CH<- read.csv("CH_Data_RMS.csv", header = T, sep = ",")
 PEAK_CH<- read.csv("CH_Data_PEAK.csv", header = T, sep = ",")
-TOTAL_RMS_CH<- read.csv("CH_Data_RMSTotal.csv", header = T, sep = ",")
+TOTAL_RMS_CH<- RMS_CH[,c(2:23,59:63)]
 
-RMS_CH$Date_Time
+
 
 
 #Clean names
@@ -128,9 +128,6 @@ PEAK_CH$ME[PEAK_CH$ME== "train"]<- "Train"
 PEAK_CH$ME[PEAK_CH$ME== "shopping_centre"]<- "Shopping Mall"
 
 
-#Some Values have a comma instead of a point
-#this needs to be changed otherwise R does not read it correctly
-TotalRMS$Total..RMS.<- as.numeric(sub(',','.',TotalRMS$Total..RMS.))                                                                                                                                                                                                                                                                                                                                  
 
 
 ###
